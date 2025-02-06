@@ -32,7 +32,7 @@ def query_pipeline(query, tokenizer, model):
             processed_query.append({'subquery': subquery, 'routing': routing})
 
     # llm-based routing
-    result = prompt_routing(subqueries)
+    result = prompt_routing(to_llm_subqueries)
     llm_processed_query = []
     for res in result:
         llm_processed_query.append({'subquery': res['subquery'], 'routing': res['routing']})
