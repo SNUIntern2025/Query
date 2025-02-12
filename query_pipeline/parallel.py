@@ -13,8 +13,6 @@ import concurrent.futures
 from typing import List, Dict
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough
 
-from queries import SAMPLE_QUERIES
-
 def load_prompt(system_prompt: str) -> PromptTemplate:
     '''
     프롬프트를 받아, LangChain의 PromptTemplate 클래스를 생성하여 반환하는 함수
@@ -116,6 +114,3 @@ def prompt_routing(subqueries: List[str]):
         json.dump({"response": all_responses}, f, ensure_ascii=False, indent=2)
     
     return all_responses
-
-if __name__ == "__main__":
-    prompt_routing(SAMPLE_QUERIES[0:3])
